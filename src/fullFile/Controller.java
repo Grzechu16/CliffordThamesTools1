@@ -20,6 +20,7 @@ public class Controller {
     FileReader fileReader;
     BufferedReader bufferedReader;
     private String finis;
+    private final String outPath = "C:\\Users\\DELL\\Desktop\\FullFileTest\\FindRaport.csv";
     private String finisInRow;
     private String marketInRow;
     private ArrayList<CheckBox> layoutMarketCheckBox;
@@ -33,10 +34,10 @@ public class Controller {
     @FXML
     TextField finisTextField;
 
-    /** Method checks if finis/path textFields are empty */
+    /** Method checks if finis textField are empty */
     public void checkIfEmpty() throws IOException {
-        if ((finisTextField.getText().equals("")) || (pathTextField.getText().equals(""))) {
-            showAlert("Specify part number and path to price file first");
+        if ((finisTextField.getText().equals(""))) {
+            showAlert("Specify part number first");
         } else
             readFile();
     }
@@ -101,7 +102,6 @@ public class Controller {
         }
     }
 
-
     /** Method allows to show information alerts */
     public void showAlert(String text) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION, "", ButtonType.OK);
@@ -148,32 +148,5 @@ public class Controller {
     }
 }
 
-
-
-
-
-
-
-
-
-    // /** Method searches through first seven characters in row (first seven characters always represents FINIS number) */
-    public void readFinisFromRow(String row) {
-        StringBuilder stringBuilder = new StringBuilder();
-        for (int i = 0; i < 7; i++) {
-            stringBuilder.append(String.valueOf(row.charAt(i)));
-        }
-        finisInRow = stringBuilder.toString();
-        stringBuilder.setLength(0);
-    }
-
-    //  /** Method searches through characters 9-11 in row (characters 9-11 always represent market shortcut) */
-    public void readMarketFromRow(String row) {
-        StringBuilder stringBuilder = new StringBuilder();
-        for (int i = 8; i < 10; i++) {
-            stringBuilder.append(String.valueOf(row.charAt(i)));
-        }
-        marketInRow = stringBuilder.toString();
-        stringBuilder.setLength(0);
-    }
 
 
