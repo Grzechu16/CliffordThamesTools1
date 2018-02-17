@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="769.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="price.Controller">
+    <children>
+        <TextField id="finisText" fx:id="finisTextField" layoutX="19.0" layoutY="161.0" prefHeight="25.0" prefWidth="353.0" promptText="Type the part number here" />
+        <Button fx:id="findButton" layoutX="385.0" layoutY="161.0" mnemonicParsing="false" onAction="#checkIfEmpty" prefHeight="25.0" prefWidth="179.0" text="Find" />
+        <Button id="exitButton" fx:id="exitButton" layoutX="672.0" layoutY="161.0" mnemonicParsing="false" onAction="#closeApp" prefHeight="25.0" prefWidth="65.0" text="Exit" />
+        <Button id="restartButton" fx:id="restartButton" layoutX="581.0" layoutY="161.0" mnemonicParsing="false" onAction="#restartApp" prefHeight="25.0" prefWidth="75.0" text="Restart" />
+        <Pane layoutX="19.0" layoutY="14.0" prefHeight="132.0" prefWidth="731.0">
+            <children>
+                <CheckBox fx:id="axCheck" layoutX="13.0" layoutY="14.0" mnemonicParsing="false" text="AX - Austria" />
+                <CheckBox fx:id="bxCheck" layoutX="14.0" layoutY="41.0" mnemonicParsing="false" text="BX - Belgium" />
+                <CheckBox fx:id="chCheck" layoutX="14.0" layoutY="66.0" mnemonicParsing="false" text="CH - Switzerland" />
+                <CheckBox fx:id="csCheck" layoutX="14.0" layoutY="91.0" mnemonicParsing="false" text="CS - Czech Republic" />
+                <CheckBox fx:id="dkCheck" layoutX="152.0" layoutY="14.0" mnemonicParsing="false" text="DK - Denmark" />
+                <CheckBox fx:id="dxCheck" layoutX="152.0" layoutY="41.0" mnemonicParsing="false" text="DX - Germany" />
+                <CheckBox fx:id="exCheck" layoutX="152.0" layoutY="66.0" mnemonicParsing="false" text="EX - Spain" />
+                <CheckBox fx:id="fxCheck" layoutX="152.0" layoutY="91.0" mnemonicParsing="false" text="FX - France" />
+                <CheckBox fx:id="gbCheck" layoutX="270.0" layoutY="14.0" mnemonicParsing="false" text="GB - Great Britain" />
+                <CheckBox fx:id="grCheck" layoutX="270.0" layoutY="41.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="106.0" text="GR - Greece" />
+                <CheckBox fx:id="hxCheck" layoutX="270.0" layoutY="66.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="106.0" text="HX - Hungary" />
+                <CheckBox fx:id="irCheck" layoutX="270.0" layoutY="91.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="106.0" text="IR - Ireland" />
+                <CheckBox fx:id="ixCheck" layoutX="395.0" layoutY="14.0" mnemonicParsing="false" text="IX - Italy" />
+                <CheckBox fx:id="nlCheck" layoutX="395.0" layoutY="41.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="127.0" text="NL - Netherlands" />
+                <CheckBox fx:id="nxCheck" layoutX="396.0" layoutY="66.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="127.0" text="NX - Norway" />
+                <CheckBox fx:id="plCheck" layoutX="395.0" layoutY="91.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="127.0" text="PL - Poland" />
+                <CheckBox fx:id="pxCheck" layoutX="515.0" layoutY="14.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="127.0" text="PX - Portugal" />
+                <CheckBox fx:id="ruCheck" layoutX="515.0" layoutY="41.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="127.0" text="RU - Russia" />
+                <CheckBox fx:id="roCheck" layoutX="515.0" layoutY="66.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="127.0" text="RO - Romania" />
+                <CheckBox fx:id="sfCheck" layoutX="515.0" layoutY="91.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="127.0" text="SF - Finland" />
+                <CheckBox fx:id="sxCheck" layoutX="621.0" layoutY="14.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="127.0" text="SX - Sweden" />
+            </children>
+        </Pane>
+    </children>
+</Pane>
