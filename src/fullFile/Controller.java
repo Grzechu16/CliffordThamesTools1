@@ -23,6 +23,8 @@ public class Controller {
     private final String outPath = "C:\\Users\\DELL\\Desktop\\FullFileTest\\FindRaport.csv";
     private String finisInRow;
     private String marketInRow;
+    public CheckBox[] checkBoxes;
+    public  String[] marketTab;
     private ArrayList<CheckBox> layoutMarketCheckBox;
     private ArrayList<String> marketShortcut;
 
@@ -34,18 +36,22 @@ public class Controller {
     @FXML
     TextField finisTextField;
 
+    @FXML
+    public void initialize() {
+        createList();
+    }
+
     /** Method checks if finis textField are empty */
     public void checkIfEmpty() throws IOException {
         if ((finisTextField.getText().equals(""))) {
             showAlert("Specify part number first");
-        } else
-            readFile();
+        }
+
     }
 
     /** Method initialize process of searching through price file */
-    public void readFile() throws IOException {
+    public void readFile(String path) throws IOException {
         finis = finisTextField.getText().toString();
-        createList();
         createNewFile();
 
         String row = "";
@@ -54,25 +60,17 @@ public class Controller {
         try {
             fileReader = new FileReader(path);
             bufferedReader = new BufferedReader(fileReader);
+            FileWriter fileWriter = new FileWriter("C:\\Users\\DELL\\Desktop\\FullFileTest\\FindRaport.csv");
+            BufferedWriter buff2 = new BufferedWriter(fileWriter);
+
             while ((row = bufferedReader.readLine()) != null) {
-                readFinisFromRow(row);
-                if (finisInRow.equals(finis)) {
-                    isFinisFound = true;
-                    for (int i = 0; i < layoutMarketLabels.size(); i++) {
-                        readMarketFromRow(row);
-                        if (marketInRow.contains(marketShortcut.get(i))) {
-                            layoutMarketLabels.get(i).setTextFill(javafx.scene.paint.Paint.valueOf(String.valueOf(Color.GREEN)));
-                            layoutMarketLabels.remove(i);
-                            marketShortcut.remove(i);
-                        } else
-                            layoutMarketLabels.get(i).setTextFill(javafx.scene.paint.Paint.valueOf(String.valueOf(Color.RED)));
-                    }
+                if (row.toUpperCase().contains(finis.toUpperCase())) {
+                buff2.write(row);
+                buff2.newLine();
                 }
             }
-            if (!isFinisFound) {
-                showAlert("Part not found in price file");
-            }
             bufferedReader.close();
+            buff2.close();
         } catch (Exception e1) {
             showAlert("Invalid or missing file");
             e1.printStackTrace();
@@ -120,13 +118,31 @@ public class Controller {
         CheckBox[] checkBoxes = {axCheck, bxCheck, chCheck, csCheck, dkCheck, dxCheck, exCheck, fxCheck,
                 gbCheck, grCheck, hxCheck, irCheck, ixCheck, nlCheck, nxCheck, plCheck, pxCheck,
                 ruCheck, roCheck, sfCheck, sxCheck};
-        String[] marketTab = {"AX", "BX", "CH", "CS", "DK", "DX", "ED", "EX", "FX", "GB", "GR", "HX", "IR", "IX",
-                "NL", "NX", "PL", "PX", "RU", "RO", "SF", "SX"};
+        String[] marketTab = {"FMPAX1", "FMPBX1", "FMPCH1", "FMPCS1", "FMPDK1", "FMPDX1", "FMPEX1", "FMPFX1", "FMPGB1", "FMPGR1", "FMPHX1", "FMPIR1", "FMPIX1",
+                "FMPNL1", "FMPNX1", "FMPPL1", "FMPPX1", "FMPRU1", "FMPRO1", "FMPSF1", "FMPSX1"};
 
         for (CheckBox l : checkBoxes)
             layoutMarketCheckBox.add(l);
         for (String s : marketTab)
             marketShortcut.add(s);
+    }
+
+    public void checkSelectedMarkets() throws IOException {
+        if((finisTextField.getText())!=""){
+            createList();
+            createNewFile();
+            for(int i=0 ; i<layoutMarketCheckBox.size();i++){
+                if(layoutMarketCheckBox.get(i).isSelected()){
+                    layoutMarketCheckBox.get(i).setDisable(false);
+                    readFile("C:\\Users\\DELL\\Desktop\\FullFileTest\\"+marketShortcut.get(i)+".csv");
+                }
+                else
+                    layoutMarketCheckBox.get(i).setDisable(true);
+            }
+        }
+        else
+            showAlert("Type finis first!");
+
     }
 
     /** Method allows to restart app */
