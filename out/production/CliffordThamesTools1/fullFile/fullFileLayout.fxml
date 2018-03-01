@@ -8,7 +8,7 @@
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="769.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fullFile.Controller">
     <children>
         <TextField id="finisText" fx:id="finisTextField" layoutX="19.0" layoutY="161.0" prefHeight="25.0" prefWidth="353.0" promptText="Type the part number here" />
-        <Button fx:id="findButton" layoutX="385.0" layoutY="161.0" mnemonicParsing="false" onAction="#checkSelectedMarkets" prefHeight="25.0" prefWidth="179.0" text="Find" />
+        <Button fx:id="findButton" layoutX="385.0" layoutY="161.0" mnemonicParsing="false" onAction="#readSelectedMarkets" prefHeight="25.0" prefWidth="179.0" text="Find" />
         <Button id="exitButton" fx:id="exitButton" layoutX="672.0" layoutY="161.0" mnemonicParsing="false" onAction="#closeApp" prefHeight="25.0" prefWidth="65.0" text="Exit" />
         <Button id="restartButton" fx:id="restartButton" layoutX="581.0" layoutY="161.0" mnemonicParsing="false" onAction="#restartApp" prefHeight="25.0" prefWidth="75.0" text="Restart" />
         <Pane layoutX="19.0" layoutY="14.0" prefHeight="132.0" prefWidth="731.0">
@@ -34,6 +34,7 @@
                 <CheckBox fx:id="roCheck" layoutX="515.0" layoutY="66.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="127.0" text="RO - Romania" />
                 <CheckBox fx:id="sfCheck" layoutX="515.0" layoutY="91.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="127.0" text="SF - Finland" />
                 <CheckBox fx:id="sxCheck" layoutX="621.0" layoutY="14.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="127.0" text="SX - Sweden" />
+            <Button id="restartButton" fx:id="selectAll" layoutX="642.0" layoutY="56.0" mnemonicParsing="false" onAction="#selectAllMarkets" prefHeight="55.0" prefWidth="75.0" text="Select All" />
             </children>
         </Pane>
     </children>
